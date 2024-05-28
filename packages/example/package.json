@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "testpatch": "pnpm version patch"
+    "testpatch": "pnpm version patch",
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.12.12",
-    "fastify": "^4.27.0"
+    "fastify": "^4.27.0",
+    "nodemon": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/koa-router": "^7.4.8",
+    "vite": "^5.2.11",
+    "vite-plugin-node": "^3.1.0"
   }
 }
