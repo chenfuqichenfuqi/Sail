@@ -15,6 +15,8 @@ const config: Config = {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
+  // The directory where Jest should output its coverage files
+  coverageDirectory: "coverage",
   coveragePathIgnorePatterns: [
     "/node_modules/", // 忽略node_modules目录
     "__tests__",
