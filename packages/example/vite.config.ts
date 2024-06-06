@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import { VitePluginNode } from 'vite-plugin-node'
+import { defineConfig, Plugin } from 'vite'
+import { VitePluginNode } from '../vitePlugin/src'
 
 export default defineConfig({
   server: {
     port: 3000,
   },
   plugins: [
-    ...VitePluginNode({
+    ...(VitePluginNode({
       adapter: 'koa',
 
       appPath: './app.ts',
@@ -16,6 +16,6 @@ export default defineConfig({
       initAppOnBoot: false,
 
       tsCompiler: 'esbuild',
-    }),
+    }) as Plugin[]),
   ],
 })

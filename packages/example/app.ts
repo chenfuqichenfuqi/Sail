@@ -2,7 +2,7 @@ import Koa from 'koa'
 const app = new Koa()
 
 app.use(async ctx => {
-  ctx.body = 'Change Me andssssss Refresh to see HMR!'
+  ctx.body = 'Change Me and 22Refresh to see HMR!'
 })
 
 if (import.meta.env.PROD) {
