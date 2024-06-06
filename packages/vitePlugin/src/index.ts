@@ -1,18 +1,17 @@
-import type { IncomingMessage, ServerResponse } from 'http';
-import type { Options } from '@swc/core';
-import type { Connect, UserConfig, ViteDevServer } from 'vite';
+import type { IncomingMessage, ServerResponse } from 'http'
+import type { Options } from '@swc/core'
+import type { Connect, UserConfig, ViteDevServer, Plugin } from 'vite'
 
-export { RollupPluginSwc } from './rollup-plugin-swc';
-export { VitePluginNode } from './vite-plugin-node';
+export { VitePluginNodeHmr } from './vite-plugin-node-hmr'
 
-export const PLUGIN_NAME = 'vite-plugin-node';
+export const PLUGIN_NAME = 'vite-plugin-node-hmr'
 
 export declare type SupportedFrameworks =
   | 'express'
   | 'nest'
   | 'koa'
   | 'fastify'
-  | 'marble';
+  | 'marble'
 
 export declare interface RequestAdapterParams<App> {
   app: App
@@ -22,20 +21,20 @@ export declare interface RequestAdapterParams<App> {
   next: Connect.NextFunction
 }
 
-export declare type RequestAdapter<App = any> = (params: RequestAdapterParams<App>) => void | Promise<void>;
+export declare type RequestAdapter<App = any> = (
+  params: RequestAdapterParams<App>
+) => void | Promise<void>
 
-export declare type RequestAdapterOption = SupportedFrameworks | RequestAdapter;
+export declare type RequestAdapterOption = SupportedFrameworks | RequestAdapter
 
-export declare type SupportedTSCompiler = 'esbuild' | 'swc';
+export declare type SupportedTSCompiler = 'esbuild' | 'swc'
 
-export interface VitePluginNodeConfig {
+export interface VitePluginNodeConfig extends Partial<Plugin> {
   appPath: string
   adapter: RequestAdapterOption
   appName?: string
   initAppOnBoot?: boolean
   exportName?: string
-  tsCompiler?: SupportedTSCompiler
-  swcOptions?: Options
 }
 
 export declare interface ViteConfig extends UserConfig {
