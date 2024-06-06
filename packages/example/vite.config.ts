@@ -7,7 +7,7 @@ export default defineConfig({
   },
   plugins: [
     ...VitePluginNode({
-      adapter: 'fastify',
+      adapter: 'koa',
 
       appPath: './app.ts',
 
